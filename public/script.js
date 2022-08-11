@@ -1,5 +1,22 @@
 const socket = io("/");
 const user = prompt("Enter username: ");
+const video_element = document.createElement("video");
+video_element.muted = true;
+let my_stream;
+navigator.mediaDevices
+  .getUserMedia({ audio: true, video: true })
+  .then((stream) => {
+    my_stream = stream;
+    addVideoStream(video_element, stream);
+  });
+
+function addVideoStream(video, stream) {
+  video.srcObject = stream;
+  video.addEventListener("loadedmetadata", () => {
+    video.play();
+    $("#video_grid").append(video);
+  });
+}
 
 let peer = new Peer(undefined, {
   path: "/peerjs",
