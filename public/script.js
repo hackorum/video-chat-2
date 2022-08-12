@@ -74,7 +74,7 @@ $(function () {
     } else {
       my_stream.getVideoTracks()[0].enabled = true;
       html = `<i class='fas fa-video'></i>`;
-      $("#stop_video").toggleClass("background_white");
+      $("#stop_video").toggleClass("background_red");
       $("#stop_video").html(html);
     }
   });
@@ -88,7 +88,7 @@ $(function () {
     } else {
       my_stream.getAudioTracks()[0].enabled = true;
       html = `<i class='fas fa-microphone'></i>`;
-      $("#mute_button").toggleClass("background_white");
+      $("#mute_button").toggleClass("background_red");
       $("#mute_button").html(html);
     }
   });
