@@ -3,11 +3,28 @@ const user = prompt("Enter username: ");
 const video_element = document.createElement("video");
 video_element.muted = true;
 let my_stream;
+function connectToNewUser(uid, stream) {
+  const call = peer.call(uid, stream);
+  const new_video_element = document.createElement("video");
+  call.on("stream", (video_stream) => {
+    addVideoStream(new_video_element, video_stream);
+  });
+}
 navigator.mediaDevices
   .getUserMedia({ audio: true, video: true })
   .then((stream) => {
     my_stream = stream;
     addVideoStream(video_element, stream);
+    socket.on("user-connected", (uid) => {
+      connectToNewUser(uid, stream);
+    });
+    peer.on("call", (call) => {
+      call.answer(stream);
+      const video = document.createElement("video");
+      call.on("stream", (video_stream) => {
+        addVideoStream(video, video_stream);
+      });
+    });
   });
 
 function addVideoStream(video, stream) {
