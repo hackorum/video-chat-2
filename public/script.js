@@ -64,6 +64,34 @@ $(function () {
       $("#chat_message").val("");
     }
   });
+  $("#stop_video").click(function () {
+    const enabled = my_stream.getVideoTracks()[0].enabled;
+    if (enabled) {
+      my_stream.getVideoTracks()[0].enabled = false;
+      html = `<i class='fas fa-video-slash'></i>`;
+      $("#stop_video").toggleClass("background_red");
+      $("#stop_video").html(html);
+    } else {
+      my_stream.getVideoTracks()[0].enabled = true;
+      html = `<i class='fas fa-video'></i>`;
+      $("#stop_video").toggleClass("background_white");
+      $("#stop_video").html(html);
+    }
+  });
+  $("#mute_button").click(function () {
+    const enabled = my_stream.getAudioTracks()[0].enabled;
+    if (enabled) {
+      my_stream.getAudioTracks()[0].enabled = false;
+      html = `<i class='fas fa-microphone-slash'></i>`;
+      $("#mute_button").toggleClass("background_red");
+      $("#mute_button").html(html);
+    } else {
+      my_stream.getAudioTracks()[0].enabled = true;
+      html = `<i class='fas fa-microphone'></i>`;
+      $("#mute_button").toggleClass("background_white");
+      $("#mute_button").html(html);
+    }
+  });
 });
 
 peer.on("open", (id) => {
