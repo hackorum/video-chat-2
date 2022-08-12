@@ -69,12 +69,12 @@ $(function () {
     if (enabled) {
       my_stream.getVideoTracks()[0].enabled = false;
       html = `<i class='fas fa-video-slash'></i>`;
-      $("#stop_video").toggleClass("red-bg");
+      $("#stop_video").toggleClass("bg-danger");
       $("#stop_video").html(html);
     } else {
       my_stream.getVideoTracks()[0].enabled = true;
       html = `<i class='fas fa-video'></i>`;
-      $("#stop_video").toggleClass("red-bg");
+      $("#stop_video").toggleClass("bg-danger");
       $("#stop_video").html(html);
     }
   });
@@ -83,12 +83,12 @@ $(function () {
     if (enabled) {
       my_stream.getAudioTracks()[0].enabled = false;
       html = `<i class='fas fa-microphone-slash'></i>`;
-      $("#mute_button").toggleClass("red-bg");
+      $("#mute_button").toggleClass("bg-danger");
       $("#mute_button").html(html);
     } else {
       my_stream.getAudioTracks()[0].enabled = true;
       html = `<i class='fas fa-microphone'></i>`;
-      $("#mute_button").toggleClass("red-bg");
+      $("#mute_button").toggleClass("bg-danger");
       $("#mute_button").html(html);
     }
   });
