@@ -114,7 +114,6 @@ $(function () {
   });
   $("#leave_button").click(function () {
     delete video_element;
-    window.location.assign("https://video-chat411.herokuapp.com/");
   });
 });
 
