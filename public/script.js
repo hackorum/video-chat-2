@@ -113,7 +113,7 @@ $(function () {
     });
   });
   $("#leave_button").click(function () {
-    delete video_element;
+    video_element.remove();
   });
 });
 
