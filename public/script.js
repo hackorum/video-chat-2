@@ -112,6 +112,9 @@ $(function () {
       },
     });
   });
+  $("#leave_button").click(function () {
+    window.location.assign("https://video-chat411.herokuapp.com/");
+  });
 });
 
 peer.on("open", (id) => {
